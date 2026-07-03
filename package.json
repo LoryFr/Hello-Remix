@@ -11,9 +11,6 @@
     "test": "NODE_ENV=test node --import remix/node-tsx --test",
     "typecheck": "tsc --noEmit"
   },
-  "engines": {
-    "node": ">=24.3.0"
-  },
   "dependencies": {
     "@tailwindcss/cli": "^4.3.2",
     "@tailwindcss/typography": "^0.5.20",
