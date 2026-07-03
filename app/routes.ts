@@ -1,7 +1,17 @@
-import { get, route } from "remix/routes";
+import { get, route, form } from "remix/routes";
 
 export const routes = route({
   assets: get("/assets/*path"),
   home: "/",
-  blog: "/blog",
+  articles: {
+    index: "/articles",
+    show: "/articles/:slug",
+  },
+  projects: {
+    index: "/projects",
+    show: "/projects/:slug",
+  },
+  services: "/services",
+  team: "/team",
+  quote: form("/quote"),
 });

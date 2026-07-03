@@ -1,6 +1,7 @@
 import type { Handle } from "remix/ui";
 import { ButtonLink } from "./button-link.tsx";
 import { Button } from "./button.tsx";
+import { Sidebar } from "./sidebar.tsx";
 
 export function Header(handle: Handle) {
   return () => (
@@ -63,6 +64,7 @@ export function Header(handle: Handle) {
           </svg>
         </Button>
       </div>
+      <Sidebar />
     </header>
   );
 }

@@ -1,11 +1,11 @@
 import { Document } from "../document.tsx";
 import { routes } from "../../routes.ts";
-import { Hero } from "../components/hero.tsx";
+import { Quote } from "../components/quote.tsx";
 
-export function HomePage() {
+export function QuotePage() {
   return () => (
     <Document>
-      <Hero />
+      <Quote></Quote>
     </Document>
   );
 }
