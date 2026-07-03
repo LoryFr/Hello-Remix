@@ -5,9 +5,11 @@
   "scripts": {
     "dev": "NODE_ENV=development node --watch --import remix/node-tsx server.ts",
     "start": "NODE_ENV=production node --import remix/node-tsx server.ts",
+    "build": "npm run build:css",
+    "build:css": "npx @tailwindcss/cli -i ./app/ui/global.css -o ./public/style.css",
+    "build:css:watch": "npx @tailwindcss/cli -i ./app/ui/global.css -o ./public/style.css --watch",
     "test": "NODE_ENV=test node --import remix/node-tsx --test",
-    "typecheck": "tsc --noEmit",
-    "build:css": "npx @tailwindcss/cli -i ./app/ui/global.css -o ./public/style.css --watch"
+    "typecheck": "tsc --noEmit"
   },
   "engines": {
     "node": ">=24.3.0"
