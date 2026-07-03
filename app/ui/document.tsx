@@ -2,13 +2,13 @@ import type { Handle, RemixNode } from "remix/ui";
 import { Header } from "./components/header.tsx";
 import { routes } from "../routes.ts";
 
-export interface DocumentProps {
+export interface Props {
   children?: RemixNode;
   head?: RemixNode;
   title?: string;
 }
 
-export function Document(handle: Handle<DocumentProps>) {
+export function Document(handle: Handle<Props>) {
   return () => {
     let { children, head, title } = handle.props;
 
