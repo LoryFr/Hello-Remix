@@ -14,6 +14,9 @@
         "tailwindcss": "^4.3.2",
         "typescript": "latest",
       },
+      "optionalDependencies": {
+        "lightningcss-linux-x64-gnu": "latest",
+      },
     },
   },
   "packages": {
