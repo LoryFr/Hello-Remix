@@ -18,7 +18,7 @@ const server = http.createServer(
   }),
 );
 
-server.listen(port, "0.0.0.0", () => {
+server.listen(port, () => {
   console.log(`Server listening on http://localhost:${port}`);
 });
 
