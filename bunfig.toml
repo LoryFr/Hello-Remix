@@ -1,3 +1,0 @@
-[install]
-# Assicurati che i binari nativi siano preservati
-backend = "node"
