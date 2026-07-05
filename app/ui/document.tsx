@@ -1,4 +1,4 @@
-import type { Handle, RemixNode } from "remix/ui";
+import type { Handle, RemixNode, FrameHandle } from "remix/ui";
 import { Header } from "./components/header.tsx";
 import { Footer } from "./components/footer.tsx";
 import { routes } from "../routes.ts";
@@ -12,9 +12,10 @@ export interface Props {
 export function Document(handle: Handle<Props>) {
   return () => {
     let { children, head, title } = handle.props;
+    let isNavigating = false;
 
     return (
-      <html lang="en">
+      <html lang="en" class="scrollbar-none">
         <head>
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />

@@ -1,4 +1,5 @@
 import type { Handle } from "remix/ui";
+import { routes } from "../../routes.ts";
 
 export function Sidebar(handle: Handle) {
   return () => (
@@ -10,14 +11,14 @@ export function Sidebar(handle: Handle) {
       <div class="flex flex-col gap-8">
         <nav class="flex flex-col gap-6 w-full">
           <h3 class="text-black-soft/75 dark:text-white-soft/75 font-semibold">
-            Risorse
+            Resources
           </h3>
           <div class="flex flex-col gap-4">
             <a
-              href="/"
+              href={routes.projects.index.href()}
               class="text-black-soft dark:text-white-soft font-semibold flex items-center gap-4"
             >
-              Progetti
+              Projects
             </a>
             <a
               href="/articles"

@@ -2,13 +2,14 @@ import type { Handle } from "remix/ui";
 import { ButtonLink } from "./button-link.tsx";
 import { Button } from "./button.tsx";
 import { Sidebar } from "./sidebar.tsx";
+import { routes } from "../../routes.ts";
 
 export function Header(handle: Handle) {
   return () => (
     <header class="flex items-center py-6 justify-between sticky top-0 bg-white dark:bg-black z-9">
       <hgroup class="flex items-center gap-12">
         <a
-          href="/"
+          href={routes.home.href()}
           class="text-2xl font-[820] font-cabinet-grotesk text-purple-strong dark:text-lavender-light"
           translate="no"
         >
@@ -17,7 +18,11 @@ export function Header(handle: Handle) {
       </hgroup>
       <div class="flex gap-4 items-center">
         <div class="max-md:hidden flex">
-          <ButtonLink variant="rounded" state="default" href={"/quote"}>
+          <ButtonLink
+            variant="rounded"
+            state="default"
+            href={routes.quote.index.href()}
+          >
             Get a Quote
             <svg
               xmlns="http://www.w3.org/2000/svg"

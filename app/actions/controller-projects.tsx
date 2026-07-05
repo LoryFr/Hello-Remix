@@ -1,14 +1,25 @@
 import { createController } from "remix/router";
 import { routes } from "../routes.ts";
-import { BlogPage } from "../ui/pages/blog.tsx";
+import { ProjectsPage, ProjectsFeed } from "../ui/pages/projects.tsx";
 
 export default createController(routes.projects, {
   actions: {
-    index(context) {
-      return context.render(<BlogPage />);
+    async index(context) {
+      return context.render(<ProjectsPage />);
     },
-    show({ params }) {
-      return new Response(`Post ${params.slug}`);
+    async feed(context) {
+      let response = await fetch("https://admin.typable.studio/api/projects");
+      let projects = await response.json();
+
+      return context.render(<ProjectsFeed projects={projects.docs} />);
+    },
+    async show({ params }) {
+      let article = await fetch(
+        `https://jsonplaceholder.typicode.com/posts/${params.slug}`,
+      );
+      let articleData = await article.json();
+
+      return new Response(`Post ${articleData.title}`);
     },
   },
 });

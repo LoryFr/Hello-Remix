@@ -9,6 +9,7 @@ export const routes = route({
   },
   projects: {
     index: "/projects",
+    feed: "/projects/_feed",
     show: "/projects/:slug",
   },
   services: "/services",
