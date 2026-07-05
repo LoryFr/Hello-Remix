@@ -14,7 +14,7 @@ export function Projects(handle: Handle<Props>) {
         {projects.map((project) => (
           <ProjectCard
             title={project.title}
-            image={`https://admin.typable.studio/${project.image.url}`}
+            image={project.image.url}
             href={routes.projects.show.href({ slug: project.slug })}
           />
         ))}

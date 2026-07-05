@@ -6,26 +6,26 @@ interface Props {
   articles: any[];
 }
 
-export function Projects(handle: Handle<Props>) {
+export function Blog(handle: Handle<Props>) {
   return () => {
     const { articles } = handle.props;
+    console.log(articles);
     return (
       <section class="gap-x-8 gap-y-16 w-full py-8 flex flex-col">
         {articles
           .sort(
             (a, b) =>
-              new Date(b.data.pubDate).getTime() -
-              new Date(a.data.pubDate).getTime(),
+              new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
           )
           .map((article) => (
             <BlogCard
-              date={article.data.pubDate}
-              title={article.data.title}
-              description={article.data.description}
+              date={article.updatedAt}
+              title={article.title}
+              description={article.description}
               author={{
-                picture: article.author?.image.src!,
-                name: article.author?.name!,
-                role: article.author?.role!,
+                picture: article.author.image.url,
+                name: article.author.name,
+                role: article.author.role,
               }}
               href={routes.articles.show.href({ slug: article.slug })}
             />

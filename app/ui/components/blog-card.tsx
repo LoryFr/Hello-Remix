@@ -3,7 +3,7 @@ import type { ElementProps } from "@remix-run/ui";
 
 interface Props extends ElementProps {
   href: string;
-  date: Date;
+  date: string | Date;
   title: string;
   description: string;
   author: {
@@ -16,7 +16,7 @@ interface Props extends ElementProps {
 export function BlogCard(handle: Handle<Props>) {
   return () => {
     const { href, title, date, description, author } = handle.props;
-    const formattedDate = date.toLocaleDateString("en-CA", {
+    const formattedDate = new Date(date).toLocaleDateString("en-CA", {
       day: "2-digit",
       month: "short",
       year: "numeric",

@@ -2,6 +2,7 @@ import { Document } from "../document.tsx";
 import { routes, frames } from "../../routes.ts";
 import { Frame } from "remix/ui";
 import type { Handle } from "remix/ui";
+import { Blog } from "../components/blog.tsx";
 
 interface Props {
   articles: any[];
@@ -22,14 +23,6 @@ export function BlogPage(handle: Handle) {
 export function BlogFeed(handle: Handle<Props>) {
   return () => {
     let { articles } = handle.props;
-    return (
-      <div>
-        {articles.map((article, index) => (
-          <div key={index}>
-            <h2>{article.title}</h2>
-          </div>
-        ))}
-      </div>
-    );
+    return <Blog articles={articles}></Blog>;
   };
 }
