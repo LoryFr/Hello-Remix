@@ -21,7 +21,7 @@ export function Sidebar(handle: Handle) {
               Projects
             </a>
             <a
-              href="/articles"
+              href={routes.articles.index.href()}
               class="text-black-soft dark:text-white-soft font-semibold flex items-center gap-4"
             >
               Articoli

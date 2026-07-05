@@ -2,7 +2,7 @@ import { Document } from "../document.tsx";
 import type { Handle } from "remix/ui";
 import { Frame } from "remix/ui";
 import { Projects } from "../components/projects.tsx";
-import { routes } from "../../routes.ts";
+import { routes, frames } from "../../routes.ts";
 
 interface Props {
   projects: any[];
@@ -13,6 +13,7 @@ export function ProjectsPage(handle: Handle) {
     return (
       <Document>
         <Frame
+          name={frames.projectsFeed}
           src={routes.projects.feed.href()}
           fallback={<div>Caricamento progetti...</div>}
         />

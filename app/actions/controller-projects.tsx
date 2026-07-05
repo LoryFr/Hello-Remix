@@ -4,7 +4,7 @@ import { ProjectsPage, ProjectsFeed } from "../ui/pages/projects.tsx";
 
 export default createController(routes.projects, {
   actions: {
-    async index(context) {
+    index(context) {
       return context.render(<ProjectsPage />);
     },
     async feed(context) {
@@ -13,13 +13,8 @@ export default createController(routes.projects, {
 
       return context.render(<ProjectsFeed projects={projects.docs} />);
     },
-    async show({ params }) {
-      let article = await fetch(
-        `https://jsonplaceholder.typicode.com/posts/${params.slug}`,
-      );
-      let articleData = await article.json();
-
-      return new Response(`Post ${articleData.title}`);
+    show({ params }) {
+      return new Response(`Post ${params.slug}`);
     },
   },
 });
