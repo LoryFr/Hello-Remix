@@ -15,7 +15,9 @@ const server = http.createServer(
   }),
 );
 
-server.listen(() => {
+export default server;
+
+server.listen(3000, () => {
   console.log(`Server listening on http://localhost:3000`);
 });
 
@@ -25,7 +27,6 @@ function shutdown() {
   if (shuttingDown) {
     return;
   }
-
   shuttingDown = true;
   server.close(() => process.exit(0));
   server.closeAllConnections();
