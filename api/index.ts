@@ -1,4 +1,4 @@
-import { router } from "./app/router.ts";
+import { router } from "../app/router.ts";
 
 export default async function handler(request: Request): Promise<Response> {
   try {
