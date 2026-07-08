@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "NODE_ENV=development node --watch --import remix/node-tsx server.ts",
-    "start": "NODE_ENV=production node --import remix/node-tsx main.ts",
+    "start": "NODE_ENV=production node --import remix/node-tsx ./api/index.ts",
     "build:css": "npx @tailwindcss/cli -i ./app/ui/global.css -o ./public/style.css",
     "build:css:watch": "npx @tailwindcss/cli -i ./app/ui/global.css -o ./public/style.css --watch",
     "test": "NODE_ENV=test node --import remix/node-tsx --test",
@@ -16,7 +16,7 @@
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.2",
     "@tailwindcss/typography": "^0.5.20",
-    "@types/node": "^26.1.0",
+    "@types/node": "^26.1.1",
     "tailwindcss": "^4.3.2",
     "typescript": "^6.0.3"
   }

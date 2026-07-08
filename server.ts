@@ -1,6 +1,7 @@
 import * as http from "node:http";
 import { createRequestListener } from "remix/node-fetch-server";
 import { router } from "./app/router.ts";
+const PORT = 3000;
 
 const server = http.createServer(
   createRequestListener(async (request) => {
@@ -17,8 +18,8 @@ const server = http.createServer(
 
 export default server;
 
-server.listen(3000, () => {
-  console.log(`Server listening on http://localhost:3000`);
+server.listen(PORT, () => {
+  console.log(`Server listening on http://localhost:${PORT}`);
 });
 
 let shuttingDown = false;
