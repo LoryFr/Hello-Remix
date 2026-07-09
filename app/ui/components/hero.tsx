@@ -6,13 +6,13 @@ export function Hero(handle: Handle) {
     <section class="flex flex-col justify-between min-h-80">
       <div class="flex justify-between gap-16 max-md:gap-8 max-md:flex-col-reverse">
         <hgroup class="flex flex-col gap-4">
-          <h1 class="text-2xl font-semibold text-black-soft/75 dark:text-white-soft/75 max-w-236 text-pretty pr-2">
+          <h1 class="text-2xl font-semibold text-black-soft/75 dark:text-white-soft/75 max-w-236 text-pretty pr-8">
             <span class="text-black-soft dark:text-white-soft">
-              A Digital Powerhouse
+              A digital powerhouse
             </span>{" "}
-            making Cool Things that&nbsp;
-            <span class="text-purple-strong dark:text-lavender-light underline underline-offset-4">
-              Just Work.
+            making cool things that&nbsp;
+            <span class="text-purple-strong dark:text-lavender-light">
+              just work.
             </span>
           </h1>
           <div class="flex items-center gap-4">
