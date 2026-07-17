@@ -1,39 +1,38 @@
-import type { Handle, RemixNode, FrameHandle } from "remix/ui";
-import { Header } from "./components/header.tsx";
-import { Footer } from "./components/footer.tsx";
-import { routes } from "../routes.ts";
+import type { Handle, RemixNode } from 'remix/ui'
+import { css } from 'remix/ui'
 
-export interface Props {
-  children?: RemixNode;
-  head?: RemixNode;
-  title?: string;
+import { routes } from '../routes.ts'
+
+export interface DocumentProps {
+  children?: RemixNode
+  head?: RemixNode
+  title?: string
 }
 
-export function Document(handle: Handle<Props>) {
+const DEFAULT_TITLE = readAppDisplayName('Hello%20Remix')
+
+export function Document(handle: Handle<DocumentProps>) {
   return () => {
-    let { children, head, title } = handle.props;
-    let isNavigating = false;
+    let { children, head, title = DEFAULT_TITLE } = handle.props
 
     return (
-      <html lang="en" class="scrollbar-none">
+      <html lang="en">
         <head>
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-          <link href="/style.css" rel="stylesheet" />
           <title>{title}</title>
           {head}
         </head>
-        <body class="bg-white dark:bg-black text-black-soft dark:text-white-soft px-8 md:px-16 pb-8 font-geist antialiased scrollbar-none flex flex-col gap-16 m-auto max-w-7xl min-h-screen">
-          <Header />
-          <main class="contents">{children}</main>
-          <Footer />
-          <script
-            type="module"
-            src={routes.assets.href({ path: "app/assets/entry.ts" })}
-          ></script>
+        <body mix={css({ margin: 0 })}>
+          {children}
+          <script type="module" src={routes.assets.href({ path: 'app/assets/entry.ts' })}></script>
         </body>
       </html>
-    );
-  };
+    )
+  }
+}
+
+function readAppDisplayName(value: string): string {
+  return value.startsWith('%%') ? 'Remix App' : decodeURIComponent(value)
 }
