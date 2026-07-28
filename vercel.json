@@ -1,4 +1,4 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "bun install && bun add --no-save lightningcss --platform=linux --arch=x64"
+  "installCommand": "bun install && npm rebuild lightningcss --build-from-source"
 }
